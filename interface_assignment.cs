@@ -35,10 +35,25 @@ public class Family
         }
     }
 
-  
+   public interface OfficePerson
+   {
+       void Professional();
+       void Mature();
+   }
 
-
-    public class Person
+   public interface FriendlyPerson
+   {
+        void Friendly();
+       void Anger();
+       void Laughter();
+   }
+   public interface FamilyPerson
+   {
+        void Mature();
+        void Anger();
+        void Laughter();
+   }
+    public class Person : Officeperson, FriendlyPerson, FamilyPerson
     {
 
         public void Friendly() {Console.WriteLine("Friendle Behavior"); }
@@ -56,14 +71,16 @@ public class Family
     {
         public static void Main()
         {
-            Person _singlePerson = new Person();
+            FamilyPerson _singlePerson = new Person();
 
             Family __familiyVisit = new Family();
             __familiyVisit.Visit(_singlePerson);
-
+            
+            OfficePerson _singlePerson = new Person();
             Office _workContext = new Office();
             _workContext.Dowork(_singlePerson);
-
+            
+            FriendlyPerson _singlePerson = new Person();
             Friend _friendCircle = new Friend();
             _friendCircle.Hangout(_singlePerson);
         }
